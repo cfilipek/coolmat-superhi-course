@@ -140,8 +140,12 @@ add_action( 'widgets_init', 'coolmat_widgets_init' );
  * Enqueue scripts and styles.
  */
 function coolmat_scripts() {
+	// this looks for default styles.css
 	wp_enqueue_style( 'coolmat-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'coolmat-style', 'rtl', 'replace' );
+
+	//here we load our custom.css file
+	wp_enqueue_style( 'coolmat-custom', get_template_directory_uri() . '/css/custom.css');
 
 	wp_enqueue_script( 'coolmat-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
